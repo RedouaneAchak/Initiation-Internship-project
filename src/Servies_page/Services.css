@@ -1,0 +1,349 @@
+.services-page {
+  padding: 2rem;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: #f7fafc;
+  margin-top: -20px;
+}
+#services {
+  text-align: center;
+  margin-bottom: 4rem;
+  letter-spacing: 1px;
+  font-size: 4rem;
+  font-weight: bolder;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  width: 90%;          /* Take full available width */
+  max-width: none;      /* Remove max-width restriction */
+  padding: 0 1rem;      /* Optional: small padding inside container */
+  margin: 0 auto;      /* Center the grid */
+}
+
+/* To make each grid item a perfect square */
+.service-card {
+  aspect-ratio: 1 / 1;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid transparent; /* base border for layout */
+  background-clip: padding-box;
+  z-index: 0;
+}
+
+/* Create the gradient border using a ::before pseudo-element */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: 15px; /* slightly bigger than card */
+  padding: 3px;
+  background: linear-gradient(270deg, #fffb00, #ffa600, #ff4d00, #eaff00);
+  background-size: 1000% 1000%;
+  animation: gradientAnimation 8s ease-in-out infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude; 
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* On hover: scale up and show the animated border */
+.service-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 24px rgba(2,6,23,0.15);
+  border-color: transparent;
+  cursor: pointer;
+  margin: 20px ; /* Add margin to create space around the card */}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.service-icon-wrap{
+  width:80px;
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50px;
+  background: rgba(255, 230, 0, 0.8);
+  margin-bottom: 2rem;
+  position: relative;
+  left: 42%;
+}
+.service-icon{
+  display:block;
+  width:50px;
+  height:50px;
+}
+.service-title{
+  margin:0;
+  font-size:2.1rem;
+}
+.service-desc{
+  margin:0;
+  color:#4a5568;
+  font-size:1.2rem;
+}
+.service-features{
+  margin:0;
+  padding-left:1.5rem;
+  margin-top:0.5rem;
+}
+.service-element{
+  margin:0.2rem 0;
+  font-size:1.3rem;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+/* Existing styles unchanged */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    width: 95%;
+    padding: 0 1rem;
+    margin-left: -10px;
+  }
+
+  .service-card {
+    aspect-ratio: auto; /* let height adapt */
+  }
+
+  .service-title {
+    font-size: 1.8rem;
+  }
+
+  .service-desc {
+    font-size: 1.1rem;
+  }
+
+  .service-element {
+    font-size: 1.1rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .service-icon-wrap {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.5rem;
+    left: 40%;
+  }
+
+  .service-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Phones (max-width: 768px) */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem;
+margin-left: -10px;
+  }
+
+  .service-card {
+    aspect-ratio: auto;
+    padding: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.6rem;
+  }
+
+  .service-desc {
+    font-size: 1rem;
+  }
+
+  .service-element {
+    font-size: 1rem;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .service-icon-wrap {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+    left: 50%; /* center horizontally */
+    transform: translateX(-50%);
+  }
+
+  .service-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Small phones (max-width: 480px) */
+@media (max-width: 480px) {
+  #services {
+    font-size: 3rem;
+    margin-left: -10px;
+  }
+
+  .service-title {
+    font-size: 1.4rem;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+  }
+
+  .service-element {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .service-icon-wrap {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.8rem;
+  }
+
+  .service-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
+
+
+.number-counters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  margin: 1rem;
+  margin-top: -20px;
+}
+.counters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 90%;
+  max-width: none;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+.counter-item {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.counter-number {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #009dff;
+  margin-bottom: 0.5rem;
+}
+#our-stats {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+.counter-label {
+  font-size: 2rem;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* Existing styles unchanged */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .counters-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 95%;
+    padding: 0 1rem;
+  }
+  .counter-number {
+    font-size: 5rem;
+  }
+  #our-stats {
+    font-size: 4rem;
+  }
+  .counter-label {
+    font-size: 1.6rem;
+  }
+}
+
+/* Phones (max-width: 768px) */
+@media (max-width: 768px) {
+  .counters-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .counter-number {
+    font-size: 4rem;
+  }
+  #our-stats {
+    font-size: 3rem;
+  }
+  .counter-label {
+    font-size: 1.4rem;
+  }
+}
+
+/* Small phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .counter-number {
+    font-size: 3rem;
+  }
+  #our-stats {
+    font-size: 2.5rem;
+  }
+  .counter-label {
+    font-size: 1.2rem;
+  }
+}

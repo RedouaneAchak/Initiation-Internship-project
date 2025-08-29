@@ -1,0 +1,152 @@
+.Navbar {
+    position: fixed;
+    /* makes it stay on top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* ensures it stays above everything else */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    height: 60px;
+    transition: background 0.5s ease;
+    backdrop-filter: none;
+}
+
+.Navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.5); /* white overlay with transparency */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);   /* subtle shadow */
+  backdrop-filter: blur(8px); /* optional: adds blur for glass effect */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.Navbar img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.Navbar h1 {
+    font-size: 30px;
+    color: #000000;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.navbar-options {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    padding: 10px 15px;
+    transition: color 0.6s ease;
+    transition: background-color 0.6s ease;
+
+
+}
+
+.navbar-options:hover {
+    color: #ffe600;
+    background-color: hsl(0, 0%, 100%, 0.8); /* light background on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Existing Navbar styles stay the same */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .Navbar{
+opacity: 0;
+  }
+  .Navbar h1 {
+    font-size: 24px;
+  }
+
+  .Navbar img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+
+  .options {
+    gap: 15px;
+    font-size: 18px;
+  }
+}
+
+/* Phones (max-width: 768px) */
+@media (max-width: 768px) {
+  .Navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    height: auto;
+opacity: 0;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .Navbar h1 {
+    font-size: 20px;
+  }
+
+  .Navbar img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+  }
+
+  .options {
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 16px;
+  }
+
+  .navbar-options {
+    padding: 8px 12px;
+  }
+}
+
+/* Very small phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .Navbar {
+    padding: 8px;
+opacity: 0;
+  }
+
+  .Navbar h1 {
+    font-size: 18px;
+  }
+
+  .options {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .navbar-options {
+    padding: 6px 10px;
+  }
+}

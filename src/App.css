@@ -1,0 +1,9 @@
+body{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+      background-color: #f7fafc;
+}
+.main-content {
+  padding-top: 60px; /* Adjust if your navbar is taller or shorter */
+  display: flex; flex-direction: column;
+}
