@@ -1,5 +1,5 @@
 import './Footer.css';
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa6";
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
     let year = new Date().getFullYear();
