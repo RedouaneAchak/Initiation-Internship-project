@@ -59,7 +59,6 @@ export default function ContactForm() {
                         icon: "error",
                         title: "Oops...",
                         text: "Quelque chose s'est mal passé!",
-                        footer: '<h1>Essayer à nouveau!</h1>'
                     });
 
                 }
